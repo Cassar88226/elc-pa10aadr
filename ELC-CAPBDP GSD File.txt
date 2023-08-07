@@ -1,0 +1,837 @@
+;==========================================================
+; GSD-File  for ELC ELC-CAPBDP
+; 
+; Auto_Baud_supp, 12MBaud 
+;
+; Stand : 
+; File    : ELC std.GSD
+;===========================================================
+#Profibus_DP
+; ============================
+; <Unit-Definition-List>
+; ============================
+GSD_Revision        = 1
+Vendor_Name         = "Eaton Cutler Hammer"
+Model_Name          = "ELC-CAPBDP"
+Revision            = "Rev. 1"
+Ident_Number        = 0x09B9  
+Protocol_Ident      = 0		; PROFIBUS DP
+Station_Type        = 0		; DP-slave
+FMS_supp            = 0
+Hardware_Release    = "V1.0"
+Software_Release    = "V1.0"
+Redundancy          = 0
+Repeater_Ctrl_Sig   = 2		; TTL
+24V_Pins            = 0
+Implementation_Type = "SPC3"
+Bitmap_Device       = "CAPBDP"
+Bitmap_Diag         = "CAPBDP"
+Bitmap_SF           = "CAPBDP"
+Slave_Family        = 3@TdF@Eaton Remote I/O; I/O family
+; Supported Communication Speeds:
+Auto_Baud_supp      = 1
+9.6_supp            = 1
+19.2_supp           = 1
+93.75_supp          = 1
+187.5_supp          = 1
+500_supp            = 1
+1.5M_supp           = 1
+3M_supp             = 1
+6M_supp             = 1
+12M_supp            = 1
+MaxTsdr_9.6         = 60
+MaxTsdr_19.2        = 60
+MaxTsdr_93.75       = 60
+MaxTsdr_187.5       = 60
+MaxTsdr_500         = 100
+MaxTsdr_1.5M        = 150
+MaxTsdr_3M          = 250
+MaxTsdr_6M          = 450
+MaxTsdr_12M         = 800
+;DP_Slave Information:
+
+;OnlySpecialModules=1
+Freeze_Mode_supp    = 1
+Sync_Mode_supp      = 1
+Set_Slave_Add_supp  = 0
+Min_Slave_Intervall = 1		; 100 micro-second
+
+; Module-Definitions:
+
+Modular_Station     = 1	   	; 0-compact; 1-modular
+Max_Module          = 26
+Max_Input_Len       = 100      
+Max_Output_Len      = 100
+Max_Data_Len        = 200
+
+Modul_Offset        = 0        
+Fail_safe           = 0
+Max_Diag_Data_Len   = 34       
+OrderNumber="ELC-CAPBDP"
+
+; ============================
+; <Prm-Text-Def-List>
+; ============================
+PrmText=1
+Text(0)="Disable"
+Text(1)="Enable"
+EndPrmText
+PrmText=2
+Text(0)="7,E,1"
+Text(1)="7,O,1"
+Text(2)="7,E,2"
+Text(3)="7,O,2"
+Text(5)="8,E,1"
+Text(6)="8,O,1"
+Text(7)="8,N,1"
+Text(8)="8,N,2"
+EndPrmText
+PrmText=3
+Text(0)="1200bps"
+Text(1)="2400 bps "
+Text(2)="4800 bps "
+Text(3)="9600 bps "
+Text(4)="19200 bps "
+Text(5)="38400 bps "
+Text(6)="57600 bps "
+Text(7)="115200 bps "
+EndPrmText
+PrmText=4
+Text(0)="RTU"
+Text(1)="ASCII"
+EndPrmText
+PrmText=5
+Text(0)="Hold I/O data "
+Text(1)="Clear I/O data"
+EndPrmText
+PrmText=6
+Text(0)="Ignore & continue I/O exchange"
+Text(1)="Stop I/O exchange & report fault"
+EndPrmText
+PrmText=7
+Text(0)="Ignore & continue I/O exchange"
+Text(1)="Continue & report alarm"
+Text(2)="Stop I/O exchange & report fault"
+EndPrmText
+PrmText=8
+Text(0)="Current value"
+Text(1)="Average value"
+EndPrmText
+PrmText=9
+Text(0)="-10V ~ +10V"
+Text(1)="-6V ~ +10V"
+Text(2)="-12mA ~ +20mA"
+Text(3)="-20mA ~ +20mA"
+EndPrmText
+PrmText=10
+Text(0)="0V ~ 10V"
+Text(1)="2V ~ 10V"
+Text(2)="4mA ~ 20mA"
+Text(3)="0mA ~ 20mA"
+EndPrmText
+PrmText=11
+Text(0)="Centigrade ( C )"
+Text(1)="Fahrenheit ( F )"
+EndPrmText
+PrmText=12
+Text(0)="J-type"
+Text(1)="K-type"
+Text(2)="R-type"
+Text(3)="S-type"
+Text(4)="T-type"
+EndPrmText
+PrmText=13
+Text(0)="ELC-AN04ANNN"
+Text(1)="ELC-AN06ANNN"
+Text(2)="ELC-AN02NANN"
+Text(3)="ELC-AN04NANN"
+Text(4)="ELC-AN06AANN"
+Text(5)="ELC-PT04ANNN"
+Text(6)="ELC-TC04ANNN"
+Text(7)="ELC-MC01"
+EndPrmText
+
+; ============================
+; <Ext-User-Prm-Data-Def-List>
+; ============================
+ExtUserPrmData=1 "Acceleration mode"
+Bit(0) 0 0-1
+Prm_Text_Ref=1
+EndExtUserPrmData
+ExtUserPrmData=2 "Modbus protocol"
+BitArea(1-4) 0 000-008
+Prm_Text_Ref=2
+EndExtUserPrmData
+ExtUserPrmData=3 "Modbus baudrate"
+BitArea(5-7) 0 000-007
+Prm_Text_Ref=3
+EndExtUserPrmData
+ExtUserPrmData=4 "Modbus mode"
+Bit(0) 0 0-1
+Prm_Text_Ref=4
+EndExtUserPrmData
+ExtUserPrmData=5 "Loss comm with master"
+Bit(1) 0 0-1
+Prm_Text_Ref=5
+EndExtUserPrmData
+ExtUserPrmData=6 "Loss modbus slave"
+BitArea(3-4) 0 0-2
+Prm_Text_Ref=7
+EndExtUserPrmData
+ExtUserPrmData=7 "IO module error"
+BitArea(5-7) 0 0-2
+Prm_Text_Ref=7
+EndExtUserPrmData
+ExtUserPrmData=8 "Diagnose cycle (s)"
+Unsigned8 10 1-20
+EndExtUserPrmData  
+ExtUserPrmData=9 "Node ID"
+Unsigned8 1 0x01-0xfe
+EndExtUserPrmData
+ExtUserPrmData=10 "Read address 1:Slave->Master"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=11 "Read address 2"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=12 "Read address 3"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=13 "Read address 4"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=14 "Read address 5"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=15 "Read address 6"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=16 "Read address 7"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=17 "Read address 8"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=18 "Write address 1:Master->Slave"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=19 "Write address 2"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=20 "Write address 3"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=21 "Write address 4"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=22 "Write address 5"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=23 "Write address 6"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=24 "Write address 7"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=25 "Write address 8"
+Unsigned16 0 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=26 "Input value mode"
+Bit(1) 0 0-1
+Prm_Text_Ref=8
+EndExtUserPrmData
+ExtUserPrmData=27 "Location"
+BitArea(0-2) 0 000-007
+EndExtUserPrmData
+ExtUserPrmData=28 "CH1 input mode"
+BitArea(0-2) 0 000-003
+Prm_Text_Ref=9
+EndExtUserPrmData
+ExtUserPrmData=29 "CH2 input mode"
+BitArea(3-5) 0 000-003
+Prm_Text_Ref=9
+EndExtUserPrmData
+ExtUserPrmData=30 "CH3 input mode"
+BitArea(6-7) 0 000-003
+Prm_Text_Ref=9
+EndExtUserPrmData
+ExtUserPrmData=31 "CH4 input mode"
+BitArea(1-4) 0 000-003
+Prm_Text_Ref=9
+EndExtUserPrmData
+ExtUserPrmData=32 "Average times"
+Unsigned16 10 0x0001-0x1000
+EndExtUserPrmData
+ExtUserPrmData=33 "CH1 input mode"
+BitArea(0-1) 0 000-003
+Prm_Text_Ref=9
+EndExtUserPrmData
+ExtUserPrmData=34 "CH2 input mode"
+BitArea(2-3) 0 000-003
+Prm_Text_Ref=9
+EndExtUserPrmData
+ExtUserPrmData=35 "CH3 input mode"
+BitArea(4-5) 0 000-003
+Prm_Text_Ref=9
+EndExtUserPrmData
+ExtUserPrmData=36 "CH4 input mode"
+BitArea(6-7) 0 000-003
+Prm_Text_Ref=9
+EndExtUserPrmData
+ExtUserPrmData=37 "CH5 input mode"
+BitArea(0-1) 0 000-003
+Prm_Text_Ref=9
+EndExtUserPrmData
+ExtUserPrmData=38 "CH6 input mode"
+BitArea(2-3) 0 000-003
+Prm_Text_Ref=9
+EndExtUserPrmData
+ExtUserPrmData=39 "CH1 output mode"
+BitArea(0-2) 0 000-003
+Prm_Text_Ref=10
+EndExtUserPrmData
+ExtUserPrmData=40 "CH2 output mode"
+BitArea(3-5) 0 000-003
+Prm_Text_Ref=10
+EndExtUserPrmData
+ExtUserPrmData=41 "CH1 output mode"
+BitArea(0-1) 0 000-003
+Prm_Text_Ref=10
+EndExtUserPrmData
+ExtUserPrmData=42 "CH2 output mode"
+BitArea(3-4) 0 000-003
+Prm_Text_Ref=10
+EndExtUserPrmData
+ExtUserPrmData=43 "CH3 output mode"
+BitArea(6-7) 0 000-003
+Prm_Text_Ref=10
+EndExtUserPrmData
+ExtUserPrmData=44 "CH4 output mode"
+BitArea(1-2) 0 000-003
+Prm_Text_Ref=10
+EndExtUserPrmData
+ExtUserPrmData=45 "CH5 output mode"
+BitArea(4-5) 0 000-003
+Prm_Text_Ref=10
+EndExtUserPrmData
+ExtUserPrmData=46 "CH6  output mode"
+BitArea(6-7) 0 000-003
+Prm_Text_Ref=10
+EndExtUserPrmData
+ExtUserPrmData=47 "Temperature mode"
+Bit(3) 0 0-1
+Prm_Text_Ref=11
+EndExtUserPrmData
+ExtUserPrmData=48 "CH2 input mode"
+Bit(3) 0 0-1
+Prm_Text_Ref=11
+EndExtUserPrmData
+ExtUserPrmData=49 "CH3 input mode"
+Bit(3) 0 0-1
+Prm_Text_Ref=11
+EndExtUserPrmData
+ExtUserPrmData=50 "CH4 input mode"
+Bit(3) 0 0-1
+Prm_Text_Ref=11
+EndExtUserPrmData
+ExtUserPrmData=51 "CH1 input mode"
+BitArea(0-2) 0 000-004
+Prm_Text_Ref=12
+EndExtUserPrmData
+ExtUserPrmData=52 "CH2 input mode"
+BitArea(3-5) 0 000-004
+Prm_Text_Ref=12
+EndExtUserPrmData
+ExtUserPrmData=53 "CH3 input mode"
+BitArea(0-2) 0 000-004
+Prm_Text_Ref=12
+EndExtUserPrmData
+ExtUserPrmData=54 "CH4 input mode"
+BitArea(3-5) 0 000-004
+Prm_Text_Ref=12
+EndExtUserPrmData
+ExtUserPrmData=55 "Module"
+BitArea(3-6) 0 000-007
+Prm_Text_Ref=13
+EndExtUserPrmData
+ExtUserPrmData=56 "Input CR number 1:Slave->Master"
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=57 "Input CR number 2 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=58 "Input CR number 3 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=59 "Input CR number 4 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=60 "Input CR number 5 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=61 "Input CR number 6 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=62 "Input CR number 7 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=63 "Input CR number 8 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=64 "Output CR number 1:Master->Slave"
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=65 "Output CR number 2 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=66 "Output CR number 3 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=67 "Output CR number 4 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=68 "Output CR number 5 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=69 "Output CR number 6 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=70 "Output CR number 7 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=71 "Output CR number 8 "
+Unsigned8 0 000-048
+EndExtUserPrmData
+ExtUserPrmData=72 "Modbus slave error"
+Bit(2) 0 0-1
+Prm_Text_Ref=6
+EndExtUserPrmData
+ExtUserPrmData=73 "Modbus timeout setting (ms)"
+Unsigned16 200 0x0000-0xffff
+EndExtUserPrmData
+ExtUserPrmData=74 "Temperature mode"
+Bit(3) 0 0-1
+Prm_Text_Ref=11
+EndExtUserPrmData
+                                         
+;specify UserPrmData:
+Max_User_Prm_Data_Len=230
+User_Prm_Data_Len   = 9        
+User_Prm_Data 		   = 0x00,0x00,0x00,0x00,0x00,0x00,0xC8,0x01,0x0A
+Ext_User_Prm_Data_Const(0)=0x00,0x00,0x00,0x00,0x00,0x00,0xC8,0x01,0x0A
+Ext_User_Prm_Data_Ref(3)=1
+Ext_User_Prm_Data_Ref(3)=2
+Ext_User_Prm_Data_Ref(3)=3
+Ext_User_Prm_Data_Ref(4)=4
+Ext_User_Prm_Data_Ref(4)=5
+Ext_User_Prm_Data_Ref(4)=72
+Ext_User_Prm_Data_Ref(4)=6
+Ext_User_Prm_Data_Ref(4)=7
+Ext_User_Prm_Data_Ref(5)=73
+Ext_User_Prm_Data_Ref(8)=8
+Module="Modbus 1 read address" 0x50
+Ext_Module_Prm_Data_Len=4
+Ext_User_Prm_Data_Const(0)=0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=9
+Ext_User_Prm_Data_Ref(2)=10
+EndModule
+Module="Modbus 2 read address" 0x51
+Ext_Module_Prm_Data_Len=6
+Ext_User_Prm_Data_Const(0)=0x02,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=9
+Ext_User_Prm_Data_Ref(2)=10
+Ext_User_Prm_Data_Ref(4)=11
+EndModule
+Module="Modbus 4 read address" 0x53
+Ext_Module_Prm_Data_Len=10
+Ext_User_Prm_Data_Const(0)=0x06,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=9
+Ext_User_Prm_Data_Ref(2)=10
+Ext_User_Prm_Data_Ref(4)=11
+Ext_User_Prm_Data_Ref(6)=12
+Ext_User_Prm_Data_Ref(8)=13
+EndModule
+Module="Modbus 8 read address" 0x57
+Ext_Module_Prm_Data_Len=18
+Ext_User_Prm_Data_Const(0)=0x0e,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=9
+Ext_User_Prm_Data_Ref(2)=10
+Ext_User_Prm_Data_Ref(4)=11
+Ext_User_Prm_Data_Ref(6)=12
+Ext_User_Prm_Data_Ref(8)=13
+Ext_User_Prm_Data_Ref(10)=14
+Ext_User_Prm_Data_Ref(12)=15
+Ext_User_Prm_Data_Ref(14)=16
+Ext_User_Prm_Data_Ref(16)=17
+EndModule
+Module="Modbus 1 write address" 0x60
+Ext_Module_Prm_Data_Len=4
+Ext_User_Prm_Data_Const(0)=0x10,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=9
+Ext_User_Prm_Data_Ref(2)=18
+EndModule
+Module="Modbus 2 write address" 0x61
+Ext_Module_Prm_Data_Len=6
+Ext_User_Prm_Data_Const(0)=0x12,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=9
+Ext_User_Prm_Data_Ref(2)=18
+Ext_User_Prm_Data_Ref(4)=19
+EndModule
+Module="Modbus 4 write address" 0x63
+Ext_Module_Prm_Data_Len=10
+Ext_User_Prm_Data_Const(0)=0x16,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=9
+Ext_User_Prm_Data_Ref(2)=18
+Ext_User_Prm_Data_Ref(4)=19
+Ext_User_Prm_Data_Ref(6)=20
+Ext_User_Prm_Data_Ref(8)=21
+EndModule
+Module="Modbus 8 write address" 0x67
+Ext_Module_Prm_Data_Len=18
+Ext_User_Prm_Data_Const(0)=0x1e,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=9
+Ext_User_Prm_Data_Ref(2)=18
+Ext_User_Prm_Data_Ref(4)=19
+Ext_User_Prm_Data_Ref(6)=20
+Ext_User_Prm_Data_Ref(8)=21
+Ext_User_Prm_Data_Ref(10)=22
+Ext_User_Prm_Data_Ref(12)=23
+Ext_User_Prm_Data_Ref(14)=24
+Ext_User_Prm_Data_Ref(16)=25
+EndModule
+Module="Modbus 1 read & write address" 0x70
+Ext_Module_Prm_Data_Len=6
+Ext_User_Prm_Data_Const(0)=0x20,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=9
+Ext_User_Prm_Data_Ref(2)=10
+Ext_User_Prm_Data_Ref(4)=18
+EndModule
+Module="Modbus 2 read & write address" 0x71
+Ext_Module_Prm_Data_Len=10
+Ext_User_Prm_Data_Const(0)=0x22,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=9
+Ext_User_Prm_Data_Ref(2)=10
+Ext_User_Prm_Data_Ref(4)=11
+Ext_User_Prm_Data_Ref(6)=18
+Ext_User_Prm_Data_Ref(8)=19
+EndModule
+Module="Modbus 4 read & write address" 0x73
+Ext_Module_Prm_Data_Len=18
+Ext_User_Prm_Data_Const(0)=0x26,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=9
+Ext_User_Prm_Data_Ref(2)=10
+Ext_User_Prm_Data_Ref(4)=11
+Ext_User_Prm_Data_Ref(6)=12
+Ext_User_Prm_Data_Ref(8)=13
+Ext_User_Prm_Data_Ref(10)=18
+Ext_User_Prm_Data_Ref(12)=19
+Ext_User_Prm_Data_Ref(14)=20
+Ext_User_Prm_Data_Ref(16)=21
+EndModule
+
+
+Module="Modbus 8 read & write address" 0x77
+Ext_Module_Prm_Data_Len=34
+Ext_User_Prm_Data_Const(0)=0x2e,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=9
+Ext_User_Prm_Data_Ref(2)=10
+Ext_User_Prm_Data_Ref(4)=11
+Ext_User_Prm_Data_Ref(6)=12
+Ext_User_Prm_Data_Ref(8)=13
+Ext_User_Prm_Data_Ref(10)=14
+Ext_User_Prm_Data_Ref(12)=15
+Ext_User_Prm_Data_Ref(14)=16
+Ext_User_Prm_Data_Ref(16)=17
+Ext_User_Prm_Data_Ref(18)=18
+Ext_User_Prm_Data_Ref(20)=19
+Ext_User_Prm_Data_Ref(22)=20
+Ext_User_Prm_Data_Ref(24)=21
+Ext_User_Prm_Data_Ref(26)=22
+Ext_User_Prm_Data_Ref(28)=23
+Ext_User_Prm_Data_Ref(30)=24
+Ext_User_Prm_Data_Ref(32)=25
+EndModule
+
+;DIDO module
+Module="ELC-EX06NNNR/T" 0x20;8DO
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x50
+EndModule
+Module="ELC-EX08NNDN" 0x10;8DI
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x40
+EndModule
+Module="ELC-EX08NNNR/T" 0x20;8DO
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x50
+EndModule
+Module="ELC-EX08NNDR/T" 0x30;8DIDO
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x60
+EndModule
+Module="ELC-EX16NNDR/T" 0x30;8DIDO
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x60
+EndModule
+Module="ELC-EX08NNSN" 0x10;8DI
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x40
+EndModule
+Module="ELC-6 DO" 0x20
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x50
+EndModule
+Module="ELC-8 DI" 0x10
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x40
+EndModule
+Module="ELC-8 DO" 0x20
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x50
+EndModule
+Module="ELC-8 DIDO" 0x30
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x60
+EndModule
+Module="ELC-16 DI" 0x11
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x42
+EndModule
+Module="ELC-16 DO" 0x21
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x52
+EndModule
+Module="ELC-16 DIDO" 0x31
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x62
+EndModule
+Module="ELC-32 DI" 0x13
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x46
+EndModule
+Module="ELC-32 DO" 0x23
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x56
+EndModule
+Module="ELC-32 DIDO" 0x33
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x66
+EndModule
+Module="ELC-64 DI" 0x17
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x4e
+EndModule
+Module="ELC-64 DO" 0x27
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x5e
+EndModule
+Module="ELC-64 DIDO" 0x37
+Ext_Module_Prm_Data_Len=1
+Ext_User_Prm_Data_Const(0)=0x6e
+EndModule
+;AIAO module
+Module="ELC-AN04ANNN" 0x53 ;4AI
+Ext_Module_Prm_Data_Len=6
+Ext_User_Prm_Data_Const(0)=0x80,0x00,0x00,0x00,0x00,0x0A
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(3)=28
+Ext_User_Prm_Data_Ref(3)=29
+Ext_User_Prm_Data_Ref(3)=30
+Ext_User_Prm_Data_Ref(2)=31
+Ext_User_Prm_Data_Ref(0)=26
+Ext_User_Prm_Data_Ref(4)=32
+EndModule
+Module="ELC-AN06ANNN" 0x55 ;6AI
+Ext_Module_Prm_Data_Len=6
+Ext_User_Prm_Data_Const(0)=0x84,0x00,0x00,0x00,0x00,0x0A
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(3)=33
+Ext_User_Prm_Data_Ref(3)=34
+Ext_User_Prm_Data_Ref(3)=35
+Ext_User_Prm_Data_Ref(3)=36
+Ext_User_Prm_Data_Ref(2)=37
+Ext_User_Prm_Data_Ref(2)=38
+Ext_User_Prm_Data_Ref(0)=26
+Ext_User_Prm_Data_Ref(4)=32
+EndModule
+Module="ELC-AN02NANN" 0x61 ;2AO
+Ext_Module_Prm_Data_Len=4
+Ext_User_Prm_Data_Const(0)=0x88,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(3)=39
+Ext_User_Prm_Data_Ref(3)=40
+EndModule
+Module="ELC-AN04NANN" 0x63 ;4AO
+Ext_Module_Prm_Data_Len=4
+Ext_User_Prm_Data_Const(0)=0x8c,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(3)=41
+Ext_User_Prm_Data_Ref(3)=42
+Ext_User_Prm_Data_Ref(3)=43
+Ext_User_Prm_Data_Ref(2)=44
+EndModule
+Module="ELC-AN06AANN" 0xC2,0x41,0x43,0xC5,0xDC;4AI/2AO
+Ext_Module_Prm_Data_Len=6
+Ext_User_Prm_Data_Const(0)=0x90,0x00,0x00,0x00,0x00,0x0A
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(3)=28
+Ext_User_Prm_Data_Ref(3)=29
+Ext_User_Prm_Data_Ref(3)=30
+Ext_User_Prm_Data_Ref(2)=31
+Ext_User_Prm_Data_Ref(2)=45
+Ext_User_Prm_Data_Ref(2)=46
+Ext_User_Prm_Data_Ref(0)=26
+Ext_User_Prm_Data_Ref(4)=32
+EndModule
+Module="ELC-PT04ANNN" 0x53 ;4AI
+Ext_Module_Prm_Data_Len=4
+Ext_User_Prm_Data_Const(0)=0x94,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(1)=47
+Ext_User_Prm_Data_Ref(0)=26
+Ext_User_Prm_Data_Ref(2)=32
+EndModule
+Module="ELC-TC04ANNN" 0x53 ;4AI
+Ext_Module_Prm_Data_Len=6
+Ext_User_Prm_Data_Const(0)=0x98,0x00,0x00,0x00,0x00,0x0A
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(3)=51
+Ext_User_Prm_Data_Ref(3)=52
+Ext_User_Prm_Data_Ref(2)=53
+Ext_User_Prm_Data_Ref(2)=54
+Ext_User_Prm_Data_Ref(0)=26
+Ext_User_Prm_Data_Ref(4)=32
+Ext_User_Prm_Data_Ref(1)=74
+EndModule
+Module="ELC-1 AI" 0x50 ;1AI
+Ext_Module_Prm_Data_Len=3
+Ext_User_Prm_Data_Const(0)=0xc0,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(1)=55
+Ext_User_Prm_Data_Ref(2)=56
+EndModule
+Module="ELC-2 AI" 0x51 ;2AI
+Ext_Module_Prm_Data_Len=4
+Ext_User_Prm_Data_Const(0)=0xc2,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(1)=55
+Ext_User_Prm_Data_Ref(2)=56
+Ext_User_Prm_Data_Ref(3)=57
+EndModule
+Module="ELC-4 AI" 0x53 ;4AI
+Ext_Module_Prm_Data_Len=6
+Ext_User_Prm_Data_Const(0)=0xc6,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(1)=55
+Ext_User_Prm_Data_Ref(2)=56
+Ext_User_Prm_Data_Ref(3)=57
+Ext_User_Prm_Data_Ref(4)=58
+Ext_User_Prm_Data_Ref(5)=59
+EndModule
+Module="ELC-8 AI" 0x57 ;8AI
+Ext_Module_Prm_Data_Len=10
+Ext_User_Prm_Data_Const(0)=0xce,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(1)=55
+Ext_User_Prm_Data_Ref(2)=56
+Ext_User_Prm_Data_Ref(3)=57
+Ext_User_Prm_Data_Ref(4)=58
+Ext_User_Prm_Data_Ref(5)=59
+Ext_User_Prm_Data_Ref(6)=60
+Ext_User_Prm_Data_Ref(7)=61
+Ext_User_Prm_Data_Ref(8)=62
+Ext_User_Prm_Data_Ref(9)=63
+EndModule
+Module="ELC-1 AO" 0x60 ;1AO
+Ext_Module_Prm_Data_Len=3
+Ext_User_Prm_Data_Const(0)=0xd0,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(1)=55
+Ext_User_Prm_Data_Ref(2)=64
+EndModule
+Module="ELC-2 AO" 0x61 ;2AO
+Ext_Module_Prm_Data_Len=4
+Ext_User_Prm_Data_Const(0)=0xd2,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(1)=55
+Ext_User_Prm_Data_Ref(2)=64
+Ext_User_Prm_Data_Ref(3)=65
+EndModule
+Module="ELC-4 AO" 0x63 ;4AO
+Ext_Module_Prm_Data_Len=6
+Ext_User_Prm_Data_Const(0)=0xd6,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(1)=55
+Ext_User_Prm_Data_Ref(2)=64
+Ext_User_Prm_Data_Ref(3)=65
+Ext_User_Prm_Data_Ref(4)=66
+Ext_User_Prm_Data_Ref(5)=67
+EndModule
+Module="ELC-8 AO" 0x67 ;8AO
+Ext_Module_Prm_Data_Len=10
+Ext_User_Prm_Data_Const(0)=0xde,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(1)=55
+Ext_User_Prm_Data_Ref(2)=64
+Ext_User_Prm_Data_Ref(3)=65
+Ext_User_Prm_Data_Ref(4)=66
+Ext_User_Prm_Data_Ref(5)=67
+Ext_User_Prm_Data_Ref(6)=68
+Ext_User_Prm_Data_Ref(7)=69
+Ext_User_Prm_Data_Ref(8)=70
+Ext_User_Prm_Data_Ref(9)=71
+EndModule
+Module="ELC-1 AIAO" 0x70 ;1AIAO
+Ext_Module_Prm_Data_Len=4
+Ext_User_Prm_Data_Const(0)=0xe0,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(1)=55
+Ext_User_Prm_Data_Ref(2)=56
+Ext_User_Prm_Data_Ref(3)=64
+EndModule
+Module="ELC-2 AIAO" 0x71 ;2AIAO
+Ext_Module_Prm_Data_Len=6
+Ext_User_Prm_Data_Const(0)=0xe2,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(1)=55
+Ext_User_Prm_Data_Ref(2)=56
+Ext_User_Prm_Data_Ref(3)=57
+Ext_User_Prm_Data_Ref(4)=64
+Ext_User_Prm_Data_Ref(5)=65
+EndModule
+Module="ELC-4 AIAO" 0x73 ;4AIAO
+Ext_Module_Prm_Data_Len=10
+Ext_User_Prm_Data_Const(0)=0xe6,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(1)=55
+Ext_User_Prm_Data_Ref(2)=56
+Ext_User_Prm_Data_Ref(3)=57
+Ext_User_Prm_Data_Ref(4)=58
+Ext_User_Prm_Data_Ref(5)=59
+Ext_User_Prm_Data_Ref(6)=64
+Ext_User_Prm_Data_Ref(7)=65
+Ext_User_Prm_Data_Ref(8)=66
+Ext_User_Prm_Data_Ref(9)=67
+EndModule
+Module="ELC-8 AIAO" 0x77 ;8AIAO
+Ext_Module_Prm_Data_Len=18
+Ext_User_Prm_Data_Const(0)=0xee,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+Ext_User_Prm_Data_Ref(1)=27
+Ext_User_Prm_Data_Ref(1)=55
+Ext_User_Prm_Data_Ref(2)=56
+Ext_User_Prm_Data_Ref(3)=57
+Ext_User_Prm_Data_Ref(4)=58
+Ext_User_Prm_Data_Ref(5)=59
+Ext_User_Prm_Data_Ref(6)=60
+Ext_User_Prm_Data_Ref(7)=61
+Ext_User_Prm_Data_Ref(8)=62
+Ext_User_Prm_Data_Ref(9)=63
+Ext_User_Prm_Data_Ref(10)=64
+Ext_User_Prm_Data_Ref(11)=65
+Ext_User_Prm_Data_Ref(12)=66
+Ext_User_Prm_Data_Ref(13)=67
+Ext_User_Prm_Data_Ref(14)=68
+Ext_User_Prm_Data_Ref(15)=69
+Ext_User_Prm_Data_Ref(16)=70
+Ext_User_Prm_Data_Ref(17)=71
+EndModule
